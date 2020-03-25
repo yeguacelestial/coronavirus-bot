@@ -68,5 +68,10 @@ class Coronavirus():
         data = self.fetch_data()
         total_recovered = data[5]
         return print(total_recovered)
+    
+    def getActiveCases(self):
+        data = self.fetch_data()
+        active_cases = data[6]
+        return print(active_cases)
 
 
