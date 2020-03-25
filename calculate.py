@@ -53,4 +53,9 @@ class Coronavirus():
         data = self.fetch_data()
         new_cases = data[2]
         return print(new_cases)
+    
+    def getTotalDeaths(self):
+        data = self.fetch_data()
+        total_deaths = data[3]
+        return print(total_deaths)
 
