@@ -33,7 +33,7 @@ class Coronavirus():
 
     def getYesterdayTotalCases(self):
         data = self.fetch_yesterday_data()
-        yesterday_total_cases = data[1]
+        yesterday_total_cases = int(data[1])
         return yesterday_total_cases
 
 
@@ -60,43 +60,41 @@ class Coronavirus():
 
     def getTotalCases(self):
         data = self.fetch_data()
-        total_cases = data[1]
+        total_cases = int(data[1])
         return total_cases
     
 
     def getNewCases(self):
         data = self.fetch_data()
-        new_cases = data[2]
+        new_cases = int(data[2])
         return new_cases
     
 
     def getTotalDeaths(self):
         data = self.fetch_data()
-        total_deaths = data[3]
+        total_deaths = int(data[3])
         return total_deaths
     
 
     def getNewDeaths(self):
         data = self.fetch_data()
-        new_deaths = data[4]
+        new_deaths = int(data[4])
         return new_deaths
     
 
     def getTotalRecovered(self):
         data = self.fetch_data()
-        total_recovered = data[5]
+        total_recovered = int(data[5])
         return total_recovered
     
 
     def getActiveCases(self):
         data = self.fetch_data()
-        active_cases = data[6]
+        active_cases = int(data[6])
         return active_cases
     
 
     def getSeriousCriticalCases(self):
         data = self.fetch_data()
-        serious_critical_cases = data[7]
+        serious_critical_cases = int(data[7])
         return serious_critical_cases
-
-
