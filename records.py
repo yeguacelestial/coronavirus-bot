@@ -24,7 +24,7 @@ class Coronavirus():
 
         return data
     
-    
+
     def getYesterdayTotalCases(self):
         data = self.fetch_yesterday_data()
         yesterday_total_cases = data[1]
@@ -33,7 +33,7 @@ class Coronavirus():
 
     def fetch_data(self):
         today_btn = self.driver.find_element_by_xpath('//*[@id="nav-today-tab"]')
-        bot.driver.execute_script('arguments[0].scrollIntoView(true);', today_btn)
+        self.driver.execute_script('arguments[0].scrollIntoView(true);', today_btn)
         time.sleep(2)
         today_btn.click()
 
