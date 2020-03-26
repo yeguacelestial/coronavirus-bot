@@ -16,10 +16,16 @@ class Coronavirus():
         yesterday_btn = self.driver.find_element_by_xpath('//*[@id="nav-yesterday-tab"]')
         yesterday_btn.click()
 
+        sort_by_country = self.driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/div[3]/div[2]/div/table/thead/tr/th[1]')
+        sort_by_country.click()
+
         yesterday_table = self.driver.find_element_by_xpath('//*[@id="main_table_countries_yesterday"]')
         yesterday_table_text = yesterday_table.text
 
-        row = yesterday_table_text[2405:2440-1]
+        starting_slice = yesterday_table_text.find('Mexico')
+        ending_slice = yesterday_table_text.find('Moldova')
+
+        row = yesterday_table_text[starting_slice:ending_slice-1]
         data = row.split(" ")
 
         return data

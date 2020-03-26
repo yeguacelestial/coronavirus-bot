@@ -24,11 +24,20 @@
 
 from records import Coronavirus
 
-def operations():
+def covid19_today():
     parser = Coronavirus()
-    I_np1 = int(parser.getTotalCases())
-    I_n = int(parser.getYesterdayTotalCases())
+    
+    cases_today = int(parser.getTotalCases())
+    cases_yesterday = int(parser.getYesterdayTotalCases())
 
-    factor = I_np1/I_n
+    factor = cases_today/cases_yesterday
 
-    return I_np1, I_n, factor
+    cases = cases_today
+    for i in range(1, 8):
+        cases = cases * factor
+        print(cases)
+        
+    cases = int(cases)
+    print(cases)
+
+    return cases_today, cases_yesterday, factor
