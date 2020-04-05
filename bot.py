@@ -55,4 +55,4 @@ def tweet_text(auth, text:str):
 if __name__ == '__main__':
     while 1:
         main()
-        time.sleep(5)
+        time.sleep(10)
