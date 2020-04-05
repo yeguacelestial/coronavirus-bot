@@ -1,6 +1,8 @@
+import random
+import time
 import tweepy
 from calculate import covid19_today
-from values import consumer_key, consumer_secret_key, access_token, access_token_secret
+from values import consumer_key, consumer_secret_key, access_token, access_token_secret, day
 
 
 def main():
@@ -15,7 +17,26 @@ def main():
     new_cases = results[4]
     total_deaths = results[5]
 
-    tweet_text(auth, f"#COVID19Mx #QuedateEnCasa\n\n"+
+    hashtags = ["COVID19Mx", 
+                "QuedateEnCasa", 
+                "Coronavirusmx",
+                "MexicoEnCuarentena",
+                "COVID19Mexico",
+                "COVIDー19mx",
+                "Coronavirusmexico",
+                "Covid_19"]
+
+    first_hashtag = random.choice(hashtags)
+    hashtags.pop(hashtags.index(first_hashtag))
+
+    second_hashtag = random.choice(hashtags)
+    hashtags.pop(hashtags.index(second_hashtag))
+
+    third_hashtag = random.choice(hashtags)
+    hashtags.pop(hashtags.index(third_hashtag))
+        
+
+    tweet_text(auth, f"#{first_hashtag} #{second_hashtag} #{third_hashtag}\n\n"+
                      f"Casos hasta el día de ayer: {yesterday_total_cases}\n"+
                      f"Casos nuevos: {new_cases}\n"+
                      f"Casos totales hasta hoy: {today_total_cases}\n"+
@@ -32,4 +53,6 @@ def tweet_text(auth, text:str):
     api.update_status(text)
 
 if __name__ == '__main__':
-    main()
+    while 1:
+        main()
+        time.sleep(day)
