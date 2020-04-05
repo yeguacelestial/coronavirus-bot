@@ -49,7 +49,7 @@ class Coronavirus():
         today_btn.click()
 
         sort_by_country = self.driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/div[3]/div[1]/div/table/thead/tr/th[1]')
-        sort_by_country.click()
+        #sort_by_country.click()
 
         today_table = self.driver.find_element_by_xpath('//*[@id="main_table_countries_today"]')
         today_table_text = today_table.text

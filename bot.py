@@ -12,9 +12,14 @@ def main():
     factor = results[2]
     week_cases = results[3]
 
-    tweet_text(auth, f"COVID19 en Mexico - Bot Test\n\n"+
-                     f"Casos de ayer: {yesterday_total_cases}\n"+
-                     f"Casos de hoy: {today_total_cases}\n"+
+    new_cases = results[4]
+    total_deaths = results[5]
+
+    tweet_text(auth, f"#COVID19Mx\n\n"+
+                     f"Casos hasta el día de ayer: {yesterday_total_cases}\n"+
+                     f"Casos nuevos: {new_cases}\n"+
+                     f"Casos totales hasta hoy: {today_total_cases}\n"+
+                     f"Muertes confirmadas: {total_deaths}\n\n"+
                      f"Si la propagación sigue el mismo ritmo, en una semana se esperan {week_cases} casos en el país.\n")
 
 def auth0(consumer_key, consumer_secret_key, access_token, access_token_secret):
