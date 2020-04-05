@@ -6,7 +6,7 @@ from values import GOOGLE_CHROME_BIN, CHROMEDRIVER_PATH
 class Coronavirus():
 
     def __init__(self):
-        
+        print("[*] Creating ChromeDriver instance...")
         options = webdriver.ChromeOptions()
         options.headless = True
         options.binary_location = GOOGLE_CHROME_BIN
@@ -16,14 +16,19 @@ class Coronavirus():
         options.add_argument("--window-size=1920,1080")
 
         self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
+        print("[+] Chromedriver instance done.")
+
+        print("[*] Going to URL and positioning....")
         self.driver.get('https://www.worldometers.info/coronavirus/')
 
         tab_position = self.driver.find_element_by_xpath('//*[@id="nav-today-tab"]')
         self.driver.execute_script('arguments[0].scrollIntoView(true);', tab_position)
         time.sleep(2)
+        print("[+] Page loaded.")
     
     def quit(self):
         self.driver.quit()
+        print("[+] Quitted page.")
 
 
     def fetch_yesterday_data(self):

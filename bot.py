@@ -42,6 +42,7 @@ def main():
                      f"Casos totales hasta hoy: {today_total_cases}\n"+
                      f"Muertes confirmadas: {total_deaths}\n\n"+
                      f"Si la propagación sigue igual, se esperan {week_cases} casos en el país dentro de una semana.\n")
+    print("[+] Tweeted.")
 
 def auth0(consumer_key, consumer_secret_key, access_token, access_token_secret):
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret_key)
@@ -53,6 +54,8 @@ def tweet_text(auth, text:str):
     api.update_status(text)
 
 if __name__ == '__main__':
+    print("[*]Running bot.py...")
     while 1:
+        print("[*] Running main function...")
         main()
         time.sleep(day)
