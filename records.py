@@ -1,10 +1,24 @@
-from selenium import webdriver
 import time
+from selenium import webdriver
+from dotenv import load_dotenv
 
 class Coronavirus():
 
     def __init__(self):
-        self.driver = webdriver.Firefox()
+        
+        load_dotenv()
+        GOOGLE_CHROME_BIN = os.getenv('GOOGLE_CHROME_BIN')
+        CHROMEDRIVER_PATH = os.getenv('CHROMEDRIVER_PATH')
+        
+        options = webdriver.ChromeOptions()
+        options.headless = True
+        options.binary_location = GOOGLE_CHROME_BIN
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument('--no-sandbox')
+        options.add_argument('--headless')
+        options.add_argument("--window-size=1920,1080")
+
+        self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
         self.driver.get('https://www.worldometers.info/coronavirus/')
 
         tab_position = self.driver.find_element_by_xpath('//*[@id="nav-today-tab"]')
