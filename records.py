@@ -11,6 +11,9 @@ class Coronavirus():
         self.driver.execute_script('arguments[0].scrollIntoView(true);', tab_position)
         time.sleep(2)
     
+    def quit(self):
+        self.driver.quit()
+
 
     def fetch_yesterday_data(self):
         yesterday_btn = self.driver.find_element_by_xpath('//*[@id="nav-yesterday-tab"]')
@@ -33,7 +36,9 @@ class Coronavirus():
 
     def getYesterdayTotalCases(self):
         data = self.fetch_yesterday_data()
-        yesterday_total_cases = int(data[1])
+        yesterday_total_cases = data[1]
+        yesterday_total_cases = yesterday_total_cases.replace(',','')
+        yesterday_total_cases = int(yesterday_total_cases)
         return yesterday_total_cases
 
 
@@ -43,11 +48,17 @@ class Coronavirus():
         time.sleep(2)
         today_btn.click()
 
+        sort_by_country = self.driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/div[3]/div[1]/div/table/thead/tr/th[1]')
+        sort_by_country.click()
+
         today_table = self.driver.find_element_by_xpath('//*[@id="main_table_countries_today"]')
-        
-        country_element = today_table.find_element_by_xpath("//td[contains(text(), 'Mexico')]")
-        row = country_element.find_element_by_xpath("./..")
-        data = row.text.split(" ")
+        today_table_text = today_table.text
+
+        starting_slice = today_table_text.find('Mexico')
+        ending_slice = today_table_text.find('Moldova')
+
+        row = today_table_text[starting_slice:ending_slice-1]
+        data = row.split(" ")
         
         return data
     
@@ -60,7 +71,10 @@ class Coronavirus():
 
     def getTotalCases(self):
         data = self.fetch_data()
-        total_cases = int(data[1])
+        total_cases = data[1]
+        total_cases = total_cases.replace(',','')
+
+        total_cases = int(total_cases)
         return total_cases
     
 
