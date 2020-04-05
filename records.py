@@ -1,14 +1,11 @@
 import time
 from selenium import webdriver
 from dotenv import load_dotenv
+from values import GOOGLE_CHROME_BIN, CHROMEDRIVER_PATH
 
 class Coronavirus():
 
     def __init__(self):
-        
-        load_dotenv()
-        GOOGLE_CHROME_BIN = os.getenv('GOOGLE_CHROME_BIN')
-        CHROMEDRIVER_PATH = os.getenv('CHROMEDRIVER_PATH')
         
         options = webdriver.ChromeOptions()
         options.headless = True
