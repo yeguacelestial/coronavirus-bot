@@ -54,7 +54,7 @@ def tweet_text(auth, text:str):
     api.update_status(text)
 
 if __name__ == '__main__':
-    print("[*]Running bot.py...")
+    print("[*] Running bot.py...")
     while 1:
         print("[*] Running main function...")
         main()
