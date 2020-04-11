@@ -1,6 +1,5 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from dotenv import load_dotenv
 from values import GOOGLE_CHROME_BIN, CHROMEDRIVER_PATH
 
@@ -15,10 +14,6 @@ class Coronavirus():
         options.add_argument('--no-sandbox')
         options.add_argument('--headless')
         options.add_argument("--window-size=1920,1080")
-
-        # Capabilities
-        capabilities = DesiredCapabilities.GOOGLECHROME
-        capabilities.update({'VERSION':'80'})
 
         self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
         print("[+] Chromedriver instance done.")
