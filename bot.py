@@ -56,6 +56,6 @@ def tweet_text(auth, text:str):
 if __name__ == '__main__':
     print("[*] Running bot.py...")
     while 1:
+        time.sleep(22*hour)
         print("[*] Running main function...")
         main()
-        time.sleep(22*hour)
