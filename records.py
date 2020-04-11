@@ -20,7 +20,7 @@ class Coronavirus():
         capabilities = DesiredCapabilities.GOOGLECHROME
         capabilities.update({'VERSION':'80'})
 
-        self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options, desired_capabilities=capabilities)
+        self.driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
         print("[+] Chromedriver instance done.")
 
         print("[*] Going to URL and positioning....")
