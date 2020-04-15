@@ -1,6 +1,7 @@
+import datetime
 import random
-import time
 import tweepy
+from time import sleep
 from calculate import covid19_today
 from values import consumer_key, consumer_secret_key, access_token, access_token_secret, day, hour
 
@@ -55,7 +56,10 @@ def tweet_text(auth, text:str):
 
 if __name__ == '__main__':
     print("[*] Running bot.py...")
+
     while 1:
-        time.sleep(22*hour)
-        print("[*] Running main function...")
-        main()
+        now = datetime.datetime.now()
+        if now.hour == 23 and now.minute == 25 and now.second == 00:
+            print("[*] Running main function...")
+            main()
+        sleep(1)
