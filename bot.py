@@ -56,10 +56,9 @@ def tweet_text(auth, text:str):
 
 if __name__ == '__main__':
     print("[*] Running bot.py...")
-
     while 1:
         now = datetime.datetime.now()
-        if now.hour == 23 and now.minute == 25 and now.second == 00:
+        if now.hour == 23 and now.minute == 35 and now.second == 00:
             print("[*] Running main function...")
             main()
         sleep(1)
