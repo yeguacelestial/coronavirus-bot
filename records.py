@@ -96,6 +96,8 @@ class Coronavirus():
 
     def getNewCases(self):
         data = self.fetch_data()
+        data = data.replace('+','')
+        data = data.replace(',','')
         new_cases = int(data[2])
         return new_cases
     
