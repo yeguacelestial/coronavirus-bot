@@ -58,7 +58,7 @@ if __name__ == '__main__':
     print("[*] Running bot.py...")
     while 1:
         now = datetime.datetime.now()
-        if now.hour == 22 and now.minute == 02 and now.second == 00:
+        if now.hour == 22 and now.minute == 9 and now.second == 1:
             print("[*] Running main function...")
             main()
         sleep(1)
