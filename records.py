@@ -106,7 +106,11 @@ class Coronavirus():
 
     def getTotalDeaths(self):
         data = self.fetch_data()
-        total_deaths = int(data[3])
+        total_deaths = data[3]
+        total_deaths = total_deaths.replace('+','')
+        total_deaths = total_deaths.replace(',','')
+
+        total_deaths = int(total_deaths)
         return total_deaths
     
 
