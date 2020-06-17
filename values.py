@@ -15,3 +15,18 @@ minute = 60
 hour = minute * 60
 day = hour * 24
 week = day * 7
+
+hashtags = ["COVID19Mx", 
+            "QuedateEnCasa", 
+            "Coronavirusmx",
+            "COVID19Mexico",
+            "COVIDー19mx",
+            "Coronavirusmexico",
+            "Covid_19",
+            "COVID-MX",
+            "SanaDistancia",
+            "NuevaNormalidad",
+            "QuédateEnCasa",
+            "COVID19",
+            "LavadoDeManos",
+            "SalvaVidas"]

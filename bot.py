@@ -3,7 +3,7 @@ import random
 import tweepy
 from time import sleep
 from calculate import covid19_today
-from values import consumer_key, consumer_secret_key, access_token, access_token_secret, day, hour
+from values import consumer_key, consumer_secret_key, access_token, access_token_secret, day, hour, hashtags
 from screenshot import capture
 
 def main(auth):
@@ -17,15 +17,7 @@ def main(auth):
     new_cases = results[4]
     total_deaths = results[5]
 
-    hashtags = ["COVID19Mx", 
-                "QuedateEnCasa", 
-                "Coronavirusmx",
-                "MexicoEnCuarentena",
-                "COVID19Mexico",
-                "COVIDー19mx",
-                "Coronavirusmexico",
-                "Covid_19",
-                'COVID-MX']
+    hashtags = hashtags.copy()
 
     first_hashtag = random.choice(hashtags)
     hashtags.pop(hashtags.index(first_hashtag))
@@ -82,8 +74,22 @@ def tweet_screenshot_estados(auth):
     month = traducir_mes(dt.month)
     day = dt.day
 
+    hashtags = hashtags.copy()
+
+    first_hashtag = random.choice(hashtags)
+    hashtags.pop(hashtags.index(first_hashtag))
+
+    second_hashtag = random.choice(hashtags)
+    hashtags.pop(hashtags.index(second_hashtag))
+
+    third_hashtag = random.choice(hashtags)
+    hashtags.pop(hashtags.index(third_hashtag))
+
     capture('https://e.infogram.com/ebc14900-0984-47df-8c99-3d0aabc01d17?src=embed', '/html/body/div[2]/div/div[2]')
-    tweet = f'{day} de {month} del {year}\nCifras por estado (Fuente: Verificovid @covidmx)'
+    tweet = f"""{day} de {month} del {year}\n
+            Cifras COVID de hoy (Fuente: Verificovid @covidmx)\n
+            #{first_hashtag} #{second_hashtag} #{third_hashtag}
+            """
 
     api = tweepy.API(auth)
     api.update_with_media('cifras_por_estado.png', status=tweet)
@@ -104,7 +110,7 @@ if __name__ == '__main__':
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 21 and now.minute == 30 and now.second == 1:
+        if now.hour == 20 and now.minute == 35 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
