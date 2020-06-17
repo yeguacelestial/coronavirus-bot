@@ -104,7 +104,7 @@ if __name__ == '__main__':
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 21 and now.minute == 26 and now.second == 1:
+        if now.hour == 21 and now.minute == 30 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
