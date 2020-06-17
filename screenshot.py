@@ -15,7 +15,7 @@ def capture(link, xpath):
     options.add_argument('--headless')
 
     with webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options) as driver:
-        driver.set_window_size(826, 736)
+        driver.set_window_size(1920, 1080)
         driver.get(link)
         time.sleep(1)
         element = driver.find_element_by_xpath(xpath)
