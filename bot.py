@@ -58,7 +58,7 @@ def tweet_text(auth, text:str):
 
 
 def traducir_mes(numero):
-    diccionario = {
+    meses = {
         1: 'enero',
         2: 'febrero',
         3: 'marzo',
@@ -73,7 +73,7 @@ def traducir_mes(numero):
         12: 'diciembre'
     }
 
-    return traducir_mes[numero]
+    return meses[numero]
 
 
 def tweet_screenshot_estados(auth):
@@ -81,7 +81,6 @@ def tweet_screenshot_estados(auth):
     year = dt.year
     month = traducir_mes(dt.month)
     day = dt.day
-
 
     capture('https://e.infogram.com/ebc14900-0984-47df-8c99-3d0aabc01d17?src=embed', '/html/body/div[2]/div/div[2]')
     tweet = f'{day} de {month} del {year}\nCifras por estado (Fuente: Verificovid @covidmx)'
@@ -103,7 +102,7 @@ if __name__ == '__main__':
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 21 and now.minute == 00 and now.second == 1:
+        if now.hour == 21 and now.minute == 15 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
