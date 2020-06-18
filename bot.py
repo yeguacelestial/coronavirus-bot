@@ -17,6 +17,7 @@ def main(auth):
     new_cases = results[4]
     total_deaths = results[5]
 
+    global hashtags
     hashtags = hashtags.copy()
 
     first_hashtag = random.choice(hashtags)
@@ -74,6 +75,7 @@ def tweet_screenshot_estados(auth):
     month = traducir_mes(dt.month)
     day = dt.day
 
+    global hashtags
     hashtags = hashtags.copy()
 
     first_hashtag = random.choice(hashtags)
@@ -105,12 +107,12 @@ if __name__ == '__main__':
         now = datetime.datetime.now()
 
         # Tweetear cifras de hoy
-        if now.hour == 13 and now.minute == 10 and now.second == 1:
+        if now.hour == 13 and now.minute == 21 and now.second == 1:
             print("[*] Running main function...")
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 13 and now.minute == 15 and now.second == 1:
+        if now.hour == 13 and now.minute == 22 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
