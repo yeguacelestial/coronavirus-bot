@@ -6,6 +6,7 @@ from calculate import covid19_today
 from values import consumer_key, consumer_secret_key, access_token, access_token_secret, day, hour, hashtags
 from screenshot import capture
 
+
 def main(auth):
     results = covid19_today()
 
@@ -88,10 +89,9 @@ def tweet_screenshot_estados(auth):
     hashtags.pop(hashtags.index(third_hashtag))
 
     capture('https://e.infogram.com/ebc14900-0984-47df-8c99-3d0aabc01d17?src=embed', '/html/body/div[2]/div/div[2]')
-    tweet = f"""Reporte - {day} de {month} del {year}\n
-            Cifras COVID de hoy (Fuente: Verificovid @covidmx)\n
-            #{first_hashtag} #{second_hashtag} #{third_hashtag}
-            """
+    tweet = f"Reporte - {day} de {month} del {year}\n"+
+            "Cifras COVID de hoy, clasificadas por estado (Fuente: Verificovid @covidmx)\n"+
+            f"#{first_hashtag} #{second_hashtag} #{third_hashtag}"
 
     api = tweepy.API(auth)
     api.update_with_media('cifras_por_estado.png', status=tweet)
@@ -107,12 +107,12 @@ if __name__ == '__main__':
         now = datetime.datetime.now()
 
         # Tweetear cifras de hoy
-        if now.hour == 13 and now.minute == 21 and now.second == 1:
+        if now.hour == 20 and now.minute == 30 and now.second == 1:
             print("[*] Running main function...")
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 13 and now.minute == 22 and now.second == 1:
+        if now.hour == 20 and now.minute == 35 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
