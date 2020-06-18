@@ -105,12 +105,12 @@ if __name__ == '__main__':
         now = datetime.datetime.now()
 
         # Tweetear cifras de hoy
-        if now.hour == 13 and now.minute == 06 and now.second == 1:
+        if now.hour == 13 and now.minute == 10 and now.second == 1:
             print("[*] Running main function...")
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 13 and now.minute == 07 and now.second == 1:
+        if now.hour == 13 and now.minute == 15 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
