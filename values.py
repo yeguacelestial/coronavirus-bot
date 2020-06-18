@@ -16,7 +16,7 @@ hour = minute * 60
 day = hour * 24
 week = day * 7
 
-hashtags = ["COVID19Mx", 
+global hashtags = ["COVID19Mx", 
             "QuedateEnCasa", 
             "Coronavirusmx",
             "COVID19Mexico",

@@ -86,7 +86,7 @@ def tweet_screenshot_estados(auth):
     hashtags.pop(hashtags.index(third_hashtag))
 
     capture('https://e.infogram.com/ebc14900-0984-47df-8c99-3d0aabc01d17?src=embed', '/html/body/div[2]/div/div[2]')
-    tweet = f"""{day} de {month} del {year}\n
+    tweet = f"""Reporte - {day} de {month} del {year}\n
             Cifras COVID de hoy (Fuente: Verificovid @covidmx)\n
             #{first_hashtag} #{second_hashtag} #{third_hashtag}
             """
@@ -105,12 +105,12 @@ if __name__ == '__main__':
         now = datetime.datetime.now()
 
         # Tweetear cifras de hoy
-        if now.hour == 20 and now.minute == 30 and now.second == 1:
+        if now.hour == 13 and now.minute == 06 and now.second == 1:
             print("[*] Running main function...")
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 20 and now.minute == 35 and now.second == 1:
+        if now.hour == 13 and now.minute == 07 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
