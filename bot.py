@@ -89,7 +89,6 @@ def tweet_screenshot_estados(auth):
     hashtags.pop(hashtags.index(third_hashtag))
 
     capture('https://e.infogram.com/ebc14900-0984-47df-8c99-3d0aabc01d17?src=embed', '/html/body/div[2]/div/div[2]')
-    tweet = 
 
     api = tweepy.API(auth)
     api.update_with_media('cifras_por_estado.png', status=f"Reporte - {day} de {month} del {year}\n"+
@@ -107,12 +106,12 @@ if __name__ == '__main__':
         now = datetime.datetime.now()
 
         # Tweetear cifras de hoy
-        if now.hour == 10 and now.minute == 47 and now.second == 1:
+        if now.hour == 10 and now.minute == 50 and now.second == 1:
             print("[*] Running main function...")
             main(auth)
 
         # Tweetear cifras por estado
-        if now.hour == 10 and now.minute == 50 and now.second == 1:
+        if now.hour == 10 and now.minute == 54 and now.second == 1:
             print("[*] Running screenshot function...")
             tweet_screenshot_estados(auth)
 
